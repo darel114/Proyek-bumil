@@ -120,5 +120,10 @@ class RegisterActivity : AppCompatActivity() {
 
         // Jika semua validasi lolos
         Toast.makeText(this, "Validasi Berhasil! HPL Anda: $tanggalHPL", Toast.LENGTH_LONG).show()
+
+        // Pindah ke Dashboard
+        val intent = android.content.Intent(this, DashboardActivity::class.java)
+        startActivity(intent)
+        finish() // Menutup halaman registrasi
     }
 }
