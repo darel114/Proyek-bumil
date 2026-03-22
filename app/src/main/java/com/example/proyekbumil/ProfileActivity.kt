@@ -2,6 +2,7 @@ package com.example.proyekbumil
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -10,7 +11,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        // Temukan Bottom Navigation di halaman Profil
+        // 1. Temukan Bottom Navigation di halaman Profil
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
         // Set item "Profil" sebagai yang terpilih secara default
@@ -32,6 +33,21 @@ class ProfileActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+
+        // 2. Logika untuk Tombol "Keluar Akun"
+        val btnKeluarAkun = findViewById<Button>(R.id.btnKeluarAkun)
+        btnKeluarAkun.setOnClickListener {
+            // Buat intent untuk berpindah ke LoginActivity
+            val intent = Intent(this, LoginActivity::class.java)
+
+            // FLAG ini berguna untuk menghapus semua tumpukan halaman (history)
+            // Jadi ketika user sudah di halaman Login, dia tidak bisa menekan tombol "Back" di HP
+            // untuk kembali ke halaman Profile secara diam-diam.
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+            finish()
         }
     }
 }

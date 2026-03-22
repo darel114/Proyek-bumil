@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F5F7">
+    android:background="#F4F5F7"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:id="@+id/headerLayout"
@@ -321,6 +322,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Card Kunjungan Lainnya -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

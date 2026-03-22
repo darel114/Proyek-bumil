@@ -3,22 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/profile_content_background">
+    android:background="#F4F5F7">
 
     <LinearLayout
         android:id="@+id/profileHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/profile_header_green"
+        android:background="#66D17E"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingTop="32dp"
-        android:paddingBottom="64dp"> <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sisa"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp" />
+        android:paddingBottom="64dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sisa"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,15 +60,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <include layout="@layout/item_profile_field"
-                app:label="Nama Ibu"
-                app:value="Nisa Octavia" />
-            <include layout="@layout/item_profile_field"
-                app:label="HPHT"
-                app:value="01 Oktober 2023" />
-            <include layout="@layout/item_profile_field"
-                app:label="Tanggal Perkiraan Lahir (HPL)"
-                app:value="07 Juli 2024" />
+            <include layout="@layout/item_profile_field" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -77,22 +71,15 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <include layout="@layout/item_profile_field"
-                app:label="Riwayat Penyakit"
-                app:value="Hipertensi" />
-            <include layout="@layout/item_profile_field"
-                app:label="Alergi"
-                app:value="Tidak ada alergi" />
-
             <Button
                 android:id="@+id/btnUbahData"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="32dp"
-                android:backgroundTint="@color/profile_button_light_green"
+                android:backgroundTint="#D5F7DD"
                 android:text="Ubah Data"
                 android:textAllCaps="false"
-                android:textColor="@color/profile_button_text_green"
+                android:textColor="#66D17E"
                 app:cornerRadius="25dp" />
 
             <Button
@@ -103,9 +90,9 @@
                 android:layout_marginTop="16dp"
                 android:text="Keluar Akun"
                 android:textAllCaps="false"
-                android:textColor="@color/profile_button_red"
+                android:textColor="#E57373"
                 app:cornerRadius="25dp"
-                app:strokeColor="@color/profile_button_red" />
+                app:strokeColor="#E57373" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -117,8 +104,8 @@
         android:layout_alignParentBottom="true"
         android:background="#FFFFFF"
         android:elevation="8dp"
-        app:itemIconTint="@color/profile_header_green"
-        app:itemTextColor="@color/profile_header_green"
+        app:itemIconTint="#66D17E"
+        app:itemTextColor="#66D17E"
         app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>
