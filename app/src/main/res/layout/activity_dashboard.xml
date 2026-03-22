@@ -374,19 +374,15 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/bg_header_rounded"
-        android:gravity="center"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="[ Area Menu Navigasi Bawah ]"
-            android:textColor="#9E9E9E"/>
-    </LinearLayout>
+        android:background="#FFFFFF"
+        android:elevation="8dp"
+        app:itemIconTint="@color/profile_header_green"
+        app:itemTextColor="@color/profile_header_green"
+        app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>

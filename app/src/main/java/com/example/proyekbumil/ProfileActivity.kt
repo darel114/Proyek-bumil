@@ -5,29 +5,30 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class DashboardActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
+        setContentView(R.layout.activity_profile)
 
-        // Temukan Bottom Navigation
+        // Temukan Bottom Navigation di halaman Profil
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-        // Set item "Beranda" sebagai yang terpilih secara default
-        bottomNavigationView.selectedItemId = R.id.menu_home
+        // Set item "Profil" sebagai yang terpilih secara default
+        bottomNavigationView.selectedItemId = R.id.menu_profile
 
         // Tambahkan perintah klik pada menu navigasi
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> {
-                    // Sudah berada di Beranda, tidak perlu melakukan apa-apa
+                    // Kembali ke DashboardActivity
+                    val intent = Intent(this, DashboardActivity::class.java)
+                    startActivity(intent)
+                    finish() // Tutup halaman profil agar pengguna kembali ke dashboard
                     true
                 }
                 R.id.menu_profile -> {
-                    // Buka ProfileActivity
-                    val intent = Intent(this, ProfileActivity::class.java)
-                    startActivity(intent)
-                    true // Mengembalikan true untuk menandai item ini terpilih
+                    // Sudah berada di Profil, tidak perlu melakukan apa-apa
+                    true
                 }
                 else -> false
             }

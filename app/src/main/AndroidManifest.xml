@@ -9,6 +9,10 @@
         android:theme="@style/Theme.ProyekBumil">
 
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
