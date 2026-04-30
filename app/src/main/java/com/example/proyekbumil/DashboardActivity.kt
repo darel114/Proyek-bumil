@@ -1,11 +1,25 @@
 package com.example.proyekbumil
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardActivity : AppCompatActivity() {
+    override fun onResume() {
+        super.onResume()
+        updateNamaUser()
+    }
+
+    private fun updateNamaUser() {
+        val tvDashboardNama = findViewById<TextView>(R.id.tvDashboardNama)
+        val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val namaUser = sharedPref.getString("nama", "Bunda")
+        tvDashboardNama.text = "Bunda $namaUser"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)

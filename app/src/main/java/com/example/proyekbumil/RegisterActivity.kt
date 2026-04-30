@@ -1,6 +1,8 @@
 package com.example.proyekbumil
 
 import android.app.DatePickerDialog
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -14,6 +16,7 @@ import java.util.Locale
 class RegisterActivity : AppCompatActivity() {
 
     // Deklarasi variabel untuk elemen UI
+    private lateinit var etNama: EditText
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var etNIK: EditText
@@ -34,6 +37,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // 1. Menghubungkan variabel Kotlin dengan ID di XML
+        etNama = findViewById(R.id.etNama)
         etEmail = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
         etNIK = findViewById(R.id.etNIK)
@@ -82,15 +86,18 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun hitungHPL() {
-        // Menggunakan Rumus Naegele (+280 Hari dari HPHT)
+        // Rumus Naegele: HPHT + 7 hari - 3 bulan + 1 tahun
         val kalenderHPL = kalenderHPHT.clone() as Calendar
-        kalenderHPL.add(Calendar.DAY_OF_MONTH, 280)
+        kalenderHPL.add(Calendar.DAY_OF_MONTH, 7)
+        kalenderHPL.add(Calendar.MONTH, -3)
+        kalenderHPL.add(Calendar.YEAR, 1)
 
         val formatTanggal = SimpleDateFormat("dd MMMM yyyy", Locale("id", "ID"))
         tanggalHPL = formatTanggal.format(kalenderHPL.time)
     }
 
     private fun validasiDanDaftar() {
+        val nama = etNama.text.toString().trim()
         val email = etEmail.text.toString().trim()
         val password = etPassword.text.toString().trim()
         val nik = etNIK.text.toString().trim()
@@ -99,7 +106,7 @@ class RegisterActivity : AppCompatActivity() {
         val beratBadan = etBeratBadan.text.toString().trim()
 
         // Validasi: Cek apakah ada yang kosong
-        if (email.isEmpty() || password.isEmpty() || nik.isEmpty() ||
+        if (nama.isEmpty() || email.isEmpty() || password.isEmpty() || nik.isEmpty() ||
             umur.isEmpty() || tinggi.isEmpty() || beratBadan.isEmpty()) {
             Toast.makeText(this, "Mohon lengkapi semua data diri Anda", Toast.LENGTH_SHORT).show()
             return
@@ -118,11 +125,20 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
+        // Simpan data ke SharedPreferences
+        val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("nama", nama)
+        editor.putString("email", email)
+        editor.putString("nik", nik)
+        editor.putString("hpl", tanggalHPL)
+        editor.apply()
+
         // Jika semua validasi lolos
-        Toast.makeText(this, "Validasi Berhasil! HPL Anda: $tanggalHPL", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Registrasi Berhasil! Selamat datang Bunda $nama", Toast.LENGTH_LONG).show()
 
         // Pindah ke Dashboard
-        val intent = android.content.Intent(this, DashboardActivity::class.java)
+        val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
         finish() // Menutup halaman registrasi
     }

@@ -5,19 +5,11 @@
         android:icon="@drawable/ic_home"
         android:title="Beranda" />
     <item
-        android:id="@+id/menu_pantau"
-        android:icon="@drawable/ic_home"
-        android:title="Pantau" />
-    <item
-        android:id="@+id/menu_Info"
-        android:icon="@drawable/ic_home"
+        android:id="@+id/menu_info"
+        android:icon="@drawable/ic_person"
         android:title="Info" />
     <item
-        android:id="@+id/menu_Jadwal"
-        android:icon="@drawable/ic_home"
-        android:title="Jadwal" />
-    <item
-        android:id="@+id/menu_profil"
+        android:id="@+id/menu_profile"
         android:icon="@drawable/ic_person"
         android:title="Profil" />
 </menu>

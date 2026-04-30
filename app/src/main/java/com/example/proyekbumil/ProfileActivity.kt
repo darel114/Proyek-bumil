@@ -1,12 +1,28 @@
 package com.example.proyekbumil
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ProfileActivity : AppCompatActivity() {
+    override fun onResume() {
+        super.onResume()
+        loadProfileData()
+    }
+
+    private fun loadProfileData() {
+        val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+
+        findViewById<TextView>(R.id.tvProfileNama).text = sharedPref.getString("nama", "-")
+        findViewById<TextView>(R.id.tvProfileEmail).text = sharedPref.getString("email", "-")
+        findViewById<TextView>(R.id.tvProfileNIK).text = sharedPref.getString("nik", "-")
+        findViewById<TextView>(R.id.tvProfileHPL).text = sharedPref.getString("hpl", "-")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -38,12 +54,14 @@ class ProfileActivity : AppCompatActivity() {
         // 2. Logika untuk Tombol "Keluar Akun"
         val btnKeluarAkun = findViewById<Button>(R.id.btnKeluarAkun)
         btnKeluarAkun.setOnClickListener {
+            val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)
+            // Hapus data session
+            sharedPref.edit().clear().apply()
+
             // Buat intent untuk berpindah ke LoginActivity
             val intent = Intent(this, LoginActivity::class.java)
 
             // FLAG ini berguna untuk menghapus semua tumpukan halaman (history)
-            // Jadi ketika user sudah di halaman Login, dia tidak bisa menekan tombol "Back" di HP
-            // untuk kembali ke halaman Profile secara diam-diam.
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
             startActivity(intent)
