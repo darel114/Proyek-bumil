@@ -51,7 +51,13 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
 
-        // 2. Logika untuk Tombol "Keluar Akun"
+        // 2. Logika untuk Tombol "Ubah Data"
+        findViewById<Button>(R.id.btnUbahData).setOnClickListener {
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 3. Logika untuk Tombol "Keluar Akun"
         val btnKeluarAkun = findViewById<Button>(R.id.btnKeluarAkun)
         btnKeluarAkun.setOnClickListener {
             val sharedPref = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE)

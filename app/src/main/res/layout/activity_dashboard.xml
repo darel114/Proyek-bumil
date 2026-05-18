@@ -111,6 +111,7 @@
                         android:lineSpacingExtra="4dp"/>
 
                     <Button
+                        android:id="@+id/btn_k1"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
@@ -161,6 +162,7 @@
                         android:lineSpacingExtra="4dp"/>
 
                     <Button
+                        android:id="@+id/btn_k2"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
@@ -211,6 +213,7 @@
                         android:lineSpacingExtra="4dp"/>
 
                     <Button
+                        android:id="@+id/btn_k3"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
@@ -261,6 +264,7 @@
                         android:lineSpacingExtra="4dp"/>
 
                     <Button
+                        android:id="@+id/btn_k4"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
@@ -311,6 +315,7 @@
                         android:lineSpacingExtra="4dp"/>
 
                     <Button
+                        android:id="@+id/btn_k5"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"
@@ -362,6 +367,7 @@
                         android:lineSpacingExtra="4dp"/>
 
                     <Button
+                        android:id="@+id/btn_k6"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginTop="12dp"

@@ -46,5 +46,14 @@ class DashboardActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        // Logika Tandai Selesai
+        val buttons = listOf(R.id.btn_k1, R.id.btn_k2, R.id.btn_k3, R.id.btn_k4, R.id.btn_k5, R.id.btn_k6)
+        buttons.forEach { id ->
+            findViewById<android.widget.Button>(id).setOnClickListener { btn ->
+                btn.setBackgroundColor(android.graphics.Color.GRAY) // Contoh perubahan warna
+                (btn as android.widget.Button).text = "Selesai"
+            }
+        }
     }
 }
