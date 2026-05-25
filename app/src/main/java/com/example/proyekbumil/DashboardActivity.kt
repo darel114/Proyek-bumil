@@ -34,14 +34,17 @@ class DashboardActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> {
-                    // Sudah berada di Beranda, tidak perlu melakukan apa-apa
+                    true
+                }
+                R.id.menu_info -> {
+                    val intent = Intent(this, InfoActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.menu_profile -> {
-                    // Buka ProfileActivity
                     val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
-                    true // Mengembalikan true untuk menandai item ini terpilih
+                    true
                 }
                 else -> false
             }

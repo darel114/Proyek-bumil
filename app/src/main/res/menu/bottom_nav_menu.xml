@@ -6,7 +6,7 @@
         android:title="Beranda" />
     <item
         android:id="@+id/menu_info"
-        android:icon="@drawable/ic_person"
+        android:icon="@drawable/ic_info"
         android:title="Info" />
     <item
         android:id="@+id/menu_profile"

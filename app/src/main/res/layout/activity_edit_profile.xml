@@ -3,11 +3,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="#F4F5F7">
 
-    <EditText android:id="@+id/etEditNama" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nama" />
-    <EditText android:id="@+id/etEditEmail" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Email" />
-    <EditText android:id="@+id/etEditNIK" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="NIK" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubah Data Ibu Hamil"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginBottom="24dp"/>
 
-    <Button android:id="@+id/btnSimpan" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Simpan" />
+    <EditText
+        android:id="@+id/etEditNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Lengkap"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etEditUmur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Umur (Tahun)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etEditTinggi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tinggi Badan (cm)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etEditBerat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Berat Badan Sebelum Hamil (kg)"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <!-- HPHT dengan DatePicker -->
+    <EditText
+        android:id="@+id/etEditHPHT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hari Pertama Haid Terakhir (HPHT)"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvEditHPL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perkiraan Tanggal Lahir (HPL): -"
+        android:textColor="#66D17E"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnSimpan"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#66D17E"
+        android:text="Simpan Perubahan"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
 </LinearLayout>
